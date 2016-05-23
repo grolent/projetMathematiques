@@ -1,0 +1,16 @@
+  action produitMatrices(t1,t2,t)
+    Donnees             t1 : tableau [N][M] de reel     { tableau a multiplier   }
+                        t2 : tableau [M][P] de reel     { tableau a multiplier   }
+    Donnees / Resultat  t : tableau [N][P] de reel      { tableau resultat       }
+    Locales i,j,k : entier                  { indices de boucle pour             }
+            aux : tableau [N][P] de reel    { tableau auxiliaire de calcul       }
+    pour i de 0 à N-1 faire
+      pour j de 0 à P-1 faire
+       aux[i][j] := 0.0
+        pour k de 0 à M-1 faire
+          aux[i][j] := aux[i][j] + t1[i][k]*t2[k][j]
+        fait
+      fait
+    fait
+    copieMatrice(aux,t);
+ fin action
