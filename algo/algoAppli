@@ -1,0 +1,16 @@
+var a b c P sol1 sol2 
+afficher " veuillez saisir vos valeurs ax² + bx +c"
+/// mettre a l'affichage _x² + _x + _ afin que l'utilisateur renseigne ses valeurs
+recuperer ses valeurs a b et c
+si a = 0 
+ return null
+sinon
+	calcul du delta : p = b² - 4ac
+	si p = 0 
+		return sol1 = -b/2a
+	else si p > 0 
+		return sol1 = -b-RAC(p) /2a ET sol2 = -b-RAC(p)/2a
+	else si p<0
+	return sol1 = -b-iRAC(p) /2a ET sol2 = -b-iRAC(p)/2a
+	finsi
+fin
