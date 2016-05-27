@@ -1,0 +1,43 @@
+int main(void)
+{
+    float tab1[ligne][colonne];
+    float tab2[ligne][colonne];
+    // matrice resultat
+    float tab3[ligne][colonne];
+    int i;
+    int j;
+ 
+    for(i=0;i<ligne;i++)
+    {
+        printf("\n\t*ligne %d Tableau 1*\n\n",i+1);
+        for(j=0;j<colonne;j++)
+        {
+            printf("colonne %d ",j+1);
+            printf("saisissez les valeurs : ");
+            scanf("%f",&tab1[i][j]);
+        }
+    }
+ 
+    for(i=0;i<ligne;i++)
+    {
+        printf("\n\t*ligne %d Tableau 1*\n\n",i+1);
+        for(j=0;j<colonne;j++)
+        {
+            printf("colonne %d ",j+1);
+            printf("saisissez les valeurs : ");
+            scanf("%f",&tab2[i][j]);
+        }
+    }
+ 
+    for(i=0;i<ligne;i++)
+    {
+        for(j=0;j<colonne;j++)
+        {
+            tab3[i][j] = tab1[i][j] - tab2[i][j];
+            printf("%.2f ",tab3[m][n]);
+        }
+        printf("\n");
+    }
+    system("pause");
+    return 0;
+}
