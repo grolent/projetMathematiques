@@ -1,0 +1,29 @@
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Equation second degré</ion-title>
+</ion-navbar>
+
+
+<ion-content padding class="getting-started">
+
+  <h3>Equation degré 2 : </h3>
+
+  <p>
+    Test équation second degré.
+  </p>
+  <form [ngFormModel]="authForm" (ngSubmit)="onSubmit(authForm.value)">
+    <ion-item>
+        <ion-label floating>a</ion-label>
+        <ion-input type="text" value="" [ngFormControl]="a"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>b</ion-label>
+        <ion-input type="text" value="" [ngFormControl]="b" ></ion-input>
+    </ion-item>             
+    <br/><br/>
+    <button type="submit" class="custom-button" [disabled]="!authForm.valid" block>Submit</button>
+  </form>
+
+</ion-content>

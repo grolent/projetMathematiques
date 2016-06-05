@@ -1,5 +1,4 @@
 import {App, IonicApp, Platform, MenuController} from 'ionic-angular';
-import {FORM_PROVIDERS} from 'angular2/common';
 import {StatusBar} from 'ionic-native';
 import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
 import {ListPage} from './pages/list/list';
