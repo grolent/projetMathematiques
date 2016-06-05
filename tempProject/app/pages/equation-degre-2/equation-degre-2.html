@@ -14,14 +14,22 @@
     {{a._value}}X² + {{b._value}}X + {{c._value}} = 0
   </p>
   <form [ngFormModel]="equationDegre2Form" (submit)="calculSecondDegre($event)">
-    <ion-label fixed>a</ion-label>
-    <ion-input type="number"  ngControl="a"></ion-input>
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>A: </ion-label>
+        <ion-input type="number"  ngControl="a"></ion-input>
+      </ion-item>
 
-    <ion-label fixed>b</ion-label>
-    <ion-input type="number"  ngControl="b"></ion-input>
+      <ion-item>
+        <ion-label fixed>B: </ion-label>
+        <ion-input type="number"  ngControl="b"></ion-input>
+      </ion-item>
 
-    <ion-label fixed>c</ion-label>
-    <ion-input type="number"  ngControl="c"></ion-input>
+      <ion-item>
+        <ion-label fixed>C: </ion-label>
+        <ion-input type="number"  ngControl="c"></ion-input>
+      </ion-item>
+    </ion-list>
 
     <div padding>
       <button block type="submit" [disabled]="!equationDegre2Form.valid">Calculer</button>
