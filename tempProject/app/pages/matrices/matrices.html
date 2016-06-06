@@ -8,4 +8,26 @@
 
 <ion-content padding class="getting-started">
 
+
+
+  <button ion-item *ngFor="#p of pages" (click)="openPage(p)">
+    {{p.title}}
+  </button>
   <h3>Matrices : </h3>
+  <ion-list>
+    <ion-item *ngFor="#ligne of matriceTestA">
+      <ion-label *ngFor="#elem of ligne">{{elem}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item *ngFor="#ligne of matriceTestB">
+      <ion-label *ngFor="#elem of ligne">{{elem}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <button (click)="matriceTestResult = additionMatrices(matriceTestA, matriceTestB)">addition</button>
+  <button (click)="matriceTestResult = soustractionMatrices(matriceTestA, matriceTestB)">soustraction</button>
+  <ion-list>
+    <ion-item *ngFor="#ligne of matriceTestResult">
+      <ion-label *ngFor="#elem of ligne">{{elem}}</ion-label>
+    </ion-item>
+  </ion-list>
