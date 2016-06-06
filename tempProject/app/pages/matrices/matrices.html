@@ -13,21 +13,24 @@
   <button ion-item *ngFor="#p of pages" (click)="openPage(p)">
     {{p.title}}
   </button>
+
   <h3>Matrices : </h3>
-  <ion-list>
-    <ion-item *ngFor="#ligne of matriceTestA">
+
+  <ion-list *ngFor="#matrice of matrices">
+    <ion-label>{{matrice.nom}}</ion-label>
+    <ion-item *ngFor="#ligne of matrice.matrice">
       <ion-label *ngFor="#elem of ligne">{{elem}}</ion-label>
     </ion-item>
   </ion-list>
+
+  <button (click)="matriceTestResult = {nom: 'resultat', matrice: additionMatrices(matrices[0].matrice, matrices[1].matrice)}">addition</button>
+  <button (click)="matriceTestResult = {nom: 'resultat', matrice: soustractionMatrices(matrices[0].matrice, matrices[1].matrice)}">soustraction</button>
+
   <ion-list>
-    <ion-item *ngFor="#ligne of matriceTestB">
+    <ion-label>{{matriceTestResult.nom}}</ion-label>
+    <ion-item *ngFor="#ligne of matriceTestResult.matrice">
       <ion-label *ngFor="#elem of ligne">{{elem}}</ion-label>
     </ion-item>
   </ion-list>
-  <button (click)="matriceTestResult = additionMatrices(matriceTestA, matriceTestB)">addition</button>
-  <button (click)="matriceTestResult = soustractionMatrices(matriceTestA, matriceTestB)">soustraction</button>
-  <ion-list>
-    <ion-item *ngFor="#ligne of matriceTestResult">
-      <ion-label *ngFor="#elem of ligne">{{elem}}</ion-label>
-    </ion-item>
-  </ion-list>
+
+</ion-content>

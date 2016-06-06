@@ -12,20 +12,22 @@ export class Matrices {
     ];
   }
   constructor(form) {
-    this.matrices = [];
-
-    this.matriceTestA = [
-      [1,2,3,4],
-      [4,3,2,1],
-      [5,6,7,8]
+    this.matrices = [
+      {
+        nom: 'matrice 1',
+        matrice: [[1,2,3,4],
+                  [4,3,2,1],
+                  [5,6,7,8]]
+      },
+      {
+        nom: 'matrice 2',
+        matrice: [[4,3,2,1],
+                  [1,2,3,4],
+                  [8,7,6,5]]
+      }
     ];
-
-    this.matriceTestB = [
-      [4,3,2,1],
-      [1,2,3,4],
-      [8,7,6,5]
-    ];
-    this.matriceTestResult = [];
+    this.matriceTestResult = {nom: '',
+                              matrice: []};
   }
   addMatrice(matrice){
     this.matrices.push(matrice);
