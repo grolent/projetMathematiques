@@ -14,10 +14,38 @@ export class EditMatriceModale {
   constructor(viewCtrl, form, params) {
     this.viewCtrl = viewCtrl;
     this.matrice = params.get('matrice');
-    console.log(this.matrice);
+
+    //creation matrice indexee
+    console.log("matrice non indexee: ",this.matrice.matrice);
+    this.indexerMatrice = function(matriceNonIndexee){
+      var matriceResult = [];
+      for(var i=0; i<matriceNonIndexee.length; i++){
+        matriceResult[i] = [];
+        for(var j=0; j<matriceNonIndexee[i].length; j++){
+          matriceResult[i][j] = {
+            val: matriceNonIndexee[i][j]
+          }
+        }
+      }
+      return matriceResult;
+    }
+    this.antiIndexerMatrice = function(matriceIndexee){
+
+    }
+    this.matriceIndexee = this.indexerMatrice(this.matrice.matrice);
+    //fin creation matrice indexee
+
+    console.log("matrice indexee: ",this.matriceIndexee);
+    this.testValue = 0;
   }
   annuler() {
     this.viewCtrl.dismiss();
+  }
+  testEdit(){
+    console.log(this.matriceIndexee);
+  }
+  inputChange(event){
+    return event.srcElement.valueAsNumber;
   }
 
 
