@@ -23,14 +23,21 @@ export class EditMatriceModale {
         matriceResult[i] = [];
         for(var j=0; j<matriceNonIndexee[i].length; j++){
           matriceResult[i][j] = {
-            val: matriceNonIndexee[i][j]
+            val: ""+matriceNonIndexee[i][j]
           }
         }
       }
       return matriceResult;
     }
     this.antiIndexerMatrice = function(matriceIndexee){
-
+      var matriceResult = [];
+      for(var i=0; i<matriceIndexee.length; i++){
+        matriceResult[i] = [];
+        for(var j=0; j<matriceIndexee[i].length; j++){
+          matriceResult[i][j] = parseFloat(matriceIndexee[i][j].val);
+        }
+      }
+      return matriceResult;
     }
     this.matriceIndexee = this.indexerMatrice(this.matrice.matrice);
     //fin creation matrice indexee
@@ -42,10 +49,11 @@ export class EditMatriceModale {
     this.viewCtrl.dismiss();
   }
   testEdit(){
-    console.log(this.matriceIndexee);
-  }
-  inputChange(event){
-    return event.srcElement.valueAsNumber;
+    this.matrice.matrice = this.antiIndexerMatrice(this.matriceIndexee);
+    let data = {
+      matrice: this.matrice
+    };
+    this.viewCtrl.dismiss(data);
   }
 
 

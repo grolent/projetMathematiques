@@ -33,6 +33,12 @@ export class Matrices {
                               matrice: []};
   }
 
+  replaceMatrice(nouvelleMatrice){
+    this.matrices.find(function (matrice) {
+      return matrice.nom === nouvelleMatrice.nom;
+    }).matrice = nouvelleMatrice.matrice;
+  }
+
   addMatrice(matrice){
     this.matrices.push(matrice);
   }
@@ -101,7 +107,7 @@ export class Matrices {
     let modal = Modal.create(EditMatriceModale, {matrice: matrice});
     modal.onDismiss(data => {
       if(typeof data !== "undefined"){
-        console.log('test dismiss edit');
+        this.replaceMatrice(data.matrice);
       }
     });
     this.nav.present(modal);
