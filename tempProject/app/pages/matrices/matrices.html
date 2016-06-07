@@ -18,7 +18,7 @@
   <button (click)="showAddMatriceModale()">Ajouter matrice vide</button>
 
   <ion-list *ngFor="#matrice of matrices">
-    <ion-label>{{matrice.nom}}</ion-label>
+    <ion-label>{{matrice.nom}}</ion-label><button type="button" (click)="showEditMatriceModale(matrice)">Edit</button>
     <ion-item *ngFor="#ligne of matrice.matrice">
       <ion-label *ngFor="#elem of ligne">{{elem}}</ion-label>
     </ion-item>

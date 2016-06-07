@@ -1,6 +1,7 @@
 import {Page, Modal, NavController} from 'ionic-angular';
 import {FormBuilder, Validators, Control, ControlGroup, FORM_DIRECTIVES} from 'angular2/common';
 import {AddMatriceModale} from '../modales/addMatriceModale';
+import {EditMatriceModale} from '../modales/editMatriceModale';
 
 @Page({
   templateUrl: 'build/pages/matrices/matrices.html'
@@ -91,6 +92,16 @@ export class Matrices {
     modal.onDismiss(data => {
       if(typeof data !== "undefined"){
           this.addEmptyMatrice(data.nom, data.m, data.n);
+      }
+    });
+    this.nav.present(modal);
+  }
+
+  showEditMatriceModale(matrice) {
+    let modal = Modal.create(EditMatriceModale, {matrice: matrice});
+    modal.onDismiss(data => {
+      if(typeof data !== "undefined"){
+        console.log('test dismiss edit');
       }
     });
     this.nav.present(modal);
