@@ -89,4 +89,13 @@ export class Matrices {
     this.nav.present(modal);
   }
 
+  deleteMatrice(matriceToDelete) {
+    var indexToDelete = this.matrices.indexOf(this.matrices.find(function (matrice) {
+      return matrice.nom === matriceToDelete.nom;
+    }));
+    this.matrices.splice(indexToDelete, 1);
+
+  }
+
+
 }
