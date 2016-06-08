@@ -16,6 +16,7 @@ export class Matrices {
   }
   constructor(form, nav) {
     this.nav = nav;
+    this.deterTest = "pas calculé";
     this.matricesFactory = new MatricesFactory();
     this.matrices = [
       {
