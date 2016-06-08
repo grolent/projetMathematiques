@@ -1,0 +1,15 @@
+// calcul de mediane
+
+A = serie statistique
+m = mediane de A
+
+n = longueur de A
+B = rangée la suite A dans l'ordre croissant
+
+si n est impair alors : 
+m = b ( (n-1 / 2) + 1 )
+sinon
+si n est pair alors :
+m = 1/2( (b (n/2) ) + b ( (n+2) + 1)   )
+fin si
+affichez m 
