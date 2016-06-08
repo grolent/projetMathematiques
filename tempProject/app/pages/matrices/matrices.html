@@ -24,8 +24,8 @@
     </ion-item>
   </ion-list>
 
-  <button (click)="matriceTestResult = {nom: 'resultat', matrice: additionMatrices(matrices[0].matrice, matrices[1].matrice)}">addition</button>
-  <button (click)="matriceTestResult = {nom: 'resultat', matrice: soustractionMatrices(matrices[0].matrice, matrices[1].matrice)}">soustraction</button>
+  <button (click)="matriceTestResult = {nom: 'resultat', matrice: matricesFactory.additionMatrices(matrices[0].matrice, matrices[1].matrice)}">addition</button>
+  <button (click)="matriceTestResult = {nom: 'resultat', matrice: matricesFactory.soustractionMatrices(matrices[0].matrice, matrices[1].matrice)}">soustraction</button>
 
   <ion-list>
     <ion-label>{{matriceTestResult.nom}}</ion-label>

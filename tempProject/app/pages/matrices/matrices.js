@@ -2,6 +2,7 @@ import {Page, Modal, NavController} from 'ionic-angular';
 import {FormBuilder, Validators, Control, ControlGroup, FORM_DIRECTIVES} from 'angular2/common';
 import {AddMatriceModale} from '../modales/addMatriceModale';
 import {EditMatriceModale} from '../modales/editMatriceModale';
+import {MatricesFactory} from '../../factories/matricesFactory';
 
 @Page({
   templateUrl: 'build/pages/matrices/matrices.html'
@@ -15,6 +16,7 @@ export class Matrices {
   }
   constructor(form, nav) {
     this.nav = nav;
+    this.matricesFactory = new MatricesFactory();
     this.matrices = [
       {
         nom: 'matrice 1',
@@ -59,38 +61,6 @@ export class Matrices {
       matrice: matriceData
     };
     this.matrices.push(matriceObject);
-  }
-
-  additionMatrices(matriceA, matriceB){
-    if( (matriceA.length !== matriceB.length) || (matriceA[0].length !== matriceB[0].length) ){
-      return null;
-    }
-    else{
-      var matriceResult = [];
-      for(var i = 0; i<matriceA.length; i++){
-        matriceResult[i] = [];
-        for(var j = 0; j<matriceA[i].length; j++){
-          matriceResult[i][j] = matriceA[i][j] + matriceB[i][j];
-        }
-      }
-      return matriceResult;
-    }
-  }
-
-  soustractionMatrices(matriceA, matriceB){
-    if( (matriceA.length !== matriceB.length) || (matriceA[0].length !== matriceB[0].length) ){
-      return null;
-    }
-    else{
-      var matriceResult = [];
-      for(var i = 0; i<matriceA.length; i++){
-        matriceResult[i] = [];
-        for(var j = 0; j<matriceA[i].length; j++){
-          matriceResult[i][j] = matriceA[i][j] - matriceB[i][j];
-        }
-      }
-      return matriceResult;
-    }
   }
 
   showAddMatriceModale() {
