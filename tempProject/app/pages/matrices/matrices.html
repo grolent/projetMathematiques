@@ -14,13 +14,12 @@
     {{p.title}}
   </button>
 
-  <p> test determinant : {{deterTest}} </p>
-
   <h3>Matrices : </h3>
   <button (click)="showAddMatriceModale()">Ajouter matrice vide</button>
 
   <ion-list *ngFor="#matrice of matrices">
-    <ion-label>{{matrice.nom}}</ion-label><button type="button" (click)="showEditMatriceModale(matrice)">Edit</button><button type="button" (click)="deterTest = matricesFactory.getDeterminant(matrice.matrice)">test Determinant</button>
+    <ion-label>{{matrice.nom}}</ion-label><button type="button" (click)="showEditMatriceModale(matrice)">Edit</button>
+    <button *ngIf="matricesFactory.isInversible(matrice.matrice)" type="button" (click)="showInverseMatriceModale(matrice)">Inverser</button>
     <ion-item *ngFor="#ligne of matrice.matrice">
       <ion-label *ngFor="#elem of ligne">{{elem}}</ion-label>
     </ion-item>

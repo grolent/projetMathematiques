@@ -77,7 +77,7 @@ export class MatricesFactory {
       }
     }
     else{
-      return "La matrice doit être carrée";
+      return null;
     }
   }
 
@@ -105,5 +105,77 @@ export class MatricesFactory {
 
     }
     return matriceResult;
+  }
+
+  getCoMatrice(matrice){
+    var matriceResult = [];
+    for(var i = 0; i<matrice.length; i++){
+      matriceResult[i] = [];
+    }
+
+    for(var i = 0; i < matrice[0].length; i++){
+      for(var j = 0; j < matrice[0].length; j++){
+        var subMatrice = this.getSubMatrice(matrice, i, j);
+        if((i+j)%2 === 0){
+          matriceResult[i][j] = this.getDeterminant(subMatrice);
+        }
+        else{
+          matriceResult[i][j] = - this.getDeterminant(subMatrice);
+        }
+      }
+    }
+
+    return matriceResult;
+  }
+
+  getMatriceTransposee(matrice){
+    var matriceResult = [];
+    for(var i = 0; i<matrice[0].length; i++){
+      matriceResult[i] = [];
+    }
+    for(var m = 0; m<matrice.length; m++){
+      for(var n = 0; n<matrice[0].length; n++){
+        matriceResult[n][m] = matrice[m][n];
+      }
+    }
+    return matriceResult;
+  }
+
+  multMatriceNumber(matrice, number){
+    var matriceResult = [];
+    for(var i = 0; i<matrice.length; i++){
+      matriceResult[i] = [];
+    }
+
+    for(var i = 0; i<matrice.length; i++){
+      for(var j = 0; j<matrice[0].length; j++){
+        matriceResult[i][j] = matrice[i][j] * number;
+      }
+    }
+
+    return matriceResult;
+  }
+
+  getMatriceInverse(matrice){
+    var determinant = this.getDeterminant(matrice);
+    if(Math.abs(determinant) < Number.EPSILON){
+      return null;
+    }
+    else{
+      var coMatrice = this.getCoMatrice(matrice);
+      var transposeeCoMatrice = this.getMatriceTransposee(coMatrice);
+      var matriceResult = this.multMatriceNumber(transposeeCoMatrice, (1/determinant));
+      return matriceResult;
+    }
+  }
+
+  isInversible(matrice){
+    var determinant = this.getDeterminant(matrice);
+    if( (determinant === null) || (Math.abs(determinant) < Number.EPSILON) ){
+      return false;
+    }
+    else{
+      return true;
+    }
   }
 }

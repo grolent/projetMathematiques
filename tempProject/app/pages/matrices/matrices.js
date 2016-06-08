@@ -2,6 +2,7 @@ import {Page, Modal, NavController} from 'ionic-angular';
 import {FormBuilder, Validators, Control, ControlGroup, FORM_DIRECTIVES} from 'angular2/common';
 import {AddMatriceModale} from '../modales/addMatriceModale';
 import {EditMatriceModale} from '../modales/editMatriceModale';
+import {InverseMatriceModale} from '../modales/inverseMatriceModale';
 import {MatricesFactory} from '../../factories/matricesFactory';
 
 @Page({
@@ -16,14 +17,13 @@ export class Matrices {
   }
   constructor(form, nav) {
     this.nav = nav;
-    this.deterTest = "pas calculé";
     this.matricesFactory = new MatricesFactory();
     this.matrices = [
       {
         nom: 'matrice 1',
-        matrice: [[1,2,3,4],
-                  [4,3,2,1],
-                  [5,6,7,8]]
+        matrice: [[1,2,3],
+                  [0,1,4],
+                  [5,6,0]]
       },
       {
         nom: 'matrice 2',
@@ -81,6 +81,11 @@ export class Matrices {
         this.replaceMatrice(data.matrice);
       }
     });
+    this.nav.present(modal);
+  }
+
+  showInverseMatriceModale(matrice) {
+    let modal = Modal.create(InverseMatriceModale, {matrice: matrice});
     this.nav.present(modal);
   }
 
