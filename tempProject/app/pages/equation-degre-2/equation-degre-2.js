@@ -1,4 +1,4 @@
-import {Page} from 'ionic-angular';2
+import {Page} from 'ionic-angular';
 import {FormBuilder, Validators, Control, ControlGroup, FORM_DIRECTIVES} from 'angular2/common';
 
 

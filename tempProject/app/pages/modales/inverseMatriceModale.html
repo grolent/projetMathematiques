@@ -1,0 +1,20 @@
+<ion-content padding class="getting-started">
+  <h3>Inverse de matrice </h3>
+
+  <ion-list>
+    <ion-label>{{matrice.nom}}</ion-label>
+    <ion-item *ngFor="#ligne of matrice.matrice">
+      <ion-label *ngFor="#elem of ligne">{{elem}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-label>{{matriceInverse.nom}}</ion-label>
+    <ion-item *ngFor="#ligne of matriceInverse.matrice">
+      <ion-label *ngFor="#elem of ligne">{{elem.toFixed(2)}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div padding>
+    <button type="button" (click)="annuler()">Retour</button>
+  </div>
+</ion-content>

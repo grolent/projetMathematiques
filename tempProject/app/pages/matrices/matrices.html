@@ -1,0 +1,30 @@
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Matrices</ion-title>
+</ion-navbar>
+
+
+<ion-content padding class="getting-started">
+
+
+
+  <button ion-item *ngFor="#p of pages" (click)="openPage(p)">
+    {{p.title}}
+  </button>
+
+  <h3>Matrices : </h3>
+  <button (click)="showAddMatriceModale()">Ajouter matrice vide</button>
+  <button (click)="showOperationsMatriceModale(matrices)">Opérations</button>
+  <ion-list *ngFor="#matrice of matrices">
+    <ion-label>{{matrice.nom}}</ion-label>
+    <button type="button" (click)="showEditMatriceModale(matrice)">Edit</button>
+    <button *ngIf="matricesFactory.isInversible(matrice.matrice)" type="button" (click)="showInverseMatriceModale(matrice)">Inverser</button>
+    <button type="button" (click)="deleteMatrice(matrice)">Supprimer</button>
+    <ion-item *ngFor="#ligne of matrice.matrice">
+      <ion-label *ngFor="#elem of ligne">{{elem}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

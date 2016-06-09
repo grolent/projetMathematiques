@@ -1,0 +1,14 @@
+<ion-content padding class="getting-started">
+  <h3>Edition de matrice :</h3>
+
+
+  <ion-list>
+    <ion-label>{{matrice.nom}}</ion-label>
+    <ion-item *ngFor="#ligne of matriceIndexee">
+      <ion-input *ngFor="#elem of ligne" type="number" value="{{elem.val}}" [(ngModel)]="elem.val"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <button type="button" (click)="testEdit()">test</button>
+  <button type="button" (click)="annuler()">Annuler</button>
+</ion-content>

@@ -4,10 +4,13 @@ import {StatusBar} from 'ionic-native';
 import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
 import {ListPage} from './pages/list/list';
 import {EquationDegre2} from './pages/equation-degre-2/equation-degre-2';
+import {Matrices} from './pages/matrices/matrices';
+import {MatricesFactory} from './factories/matricesFactory';
 
 
 @App({
   templateUrl: 'build/app.html',
+  providers: [MatricesFactory],
   config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
 class MyApp {
@@ -26,6 +29,7 @@ class MyApp {
     this.pages = [
       { title: 'Hello Ionic', component: HelloIonicPage },
       { title: 'Equation second degré', component: EquationDegre2 },
+      { title: 'Matrices', component: Matrices},
       { title: 'My First List', component: ListPage }
     ];
 

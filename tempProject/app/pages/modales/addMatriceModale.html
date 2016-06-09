@@ -1,0 +1,26 @@
+<ion-content padding class="getting-started">
+  <h3>Ajout de matrice </h3>
+  <p>Entrez la taille de la matrice</p>
+  <form [ngFormModel]="addMatriceForm" (submit)="valider()">
+    <ion-list>
+      <ion-item>
+        <ion-label>Nom matrice: </ion-label>
+        <ion-input type="text"  ngControl="nom"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Nombre de lignes: </ion-label>
+        <ion-input type="number"  ngControl="m"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Nombre de colonnes: </ion-label>
+        <ion-input type="number"  ngControl="n"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <div padding>
+      <button type="button" (click)="annuler()">Annuler</button><button block type="submit" [disabled]="!addMatriceForm.valid">Valider</button>
+    </div>
+  </form>
+</ion-content>
