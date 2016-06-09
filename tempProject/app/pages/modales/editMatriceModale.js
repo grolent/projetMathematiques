@@ -14,6 +14,9 @@ export class EditMatriceModale {
   constructor(viewCtrl, form, params) {
     this.viewCtrl = viewCtrl;
     this.matrice = params.get('matrice');
+    this.editMatriceForm = form.group({
+      'champ': ['', Validators.compose([Validators.pattern('^-?[0-9]+(\.[0-9]+)?$'), Validators.required])]
+    });
 
     //creation matrice indexee
     this.indexerMatrice = function(matriceNonIndexee){
@@ -53,6 +56,5 @@ export class EditMatriceModale {
     };
     this.viewCtrl.dismiss(data);
   }
-
 
 }
