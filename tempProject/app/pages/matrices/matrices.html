@@ -16,23 +16,13 @@
 
   <h3>Matrices : </h3>
   <button (click)="showAddMatriceModale()">Ajouter matrice vide</button>
-
+  <button (click)="showOperationsMatriceModale(matrices)">Opérations</button>
   <ion-list *ngFor="#matrice of matrices">
     <ion-label>{{matrice.nom}}</ion-label>
     <button type="button" (click)="showEditMatriceModale(matrice)">Edit</button>
     <button *ngIf="matricesFactory.isInversible(matrice.matrice)" type="button" (click)="showInverseMatriceModale(matrice)">Inverser</button>
     <button type="button" (click)="deleteMatrice(matrice)">Supprimer</button>
     <ion-item *ngFor="#ligne of matrice.matrice">
-      <ion-label *ngFor="#elem of ligne">{{elem}}</ion-label>
-    </ion-item>
-  </ion-list>
-
-  <button (click)="matriceTestResult = {nom: 'resultat', matrice: matricesFactory.additionMatrices(matrices[0].matrice, matrices[1].matrice)}">addition</button>
-  <button (click)="matriceTestResult = {nom: 'resultat', matrice: matricesFactory.soustractionMatrices(matrices[0].matrice, matrices[1].matrice)}">soustraction</button>
-
-  <ion-list>
-    <ion-label>{{matriceTestResult.nom}}</ion-label>
-    <ion-item *ngFor="#ligne of matriceTestResult.matrice">
       <ion-label *ngFor="#elem of ligne">{{elem}}</ion-label>
     </ion-item>
   </ion-list>

@@ -1,9 +1,9 @@
 import {Modal, NavController, Page, ViewController, NavParams} from 'ionic-angular';
 import {MatricesFactory} from '../../factories/matricesFactory';
 @Page({
-  templateUrl: 'build/pages/modales/inverseMatriceModale.html'
+  templateUrl: 'build/pages/modales/operationsMatriceModale.html'
 })
-export class InverseMatriceModale {
+export class OperationsMatriceModale {
   static get parameters() {
     return [
       [ViewController],
@@ -11,13 +11,14 @@ export class InverseMatriceModale {
     ];
   }
   constructor(viewCtrl, params) {
+    this.matrice1 = {};
+    this.matrice2 = {};
+    this.matriceResult = {
+      nom: "Résultat"
+    };
     this.viewCtrl = viewCtrl;
     this.matricesFactory = new MatricesFactory();
-    this.matrice = params.get('matrice');
-    this.matriceInverse = {
-      nom: 'Matrice inverse',
-      matrice: this.matricesFactory.getMatriceInverse(this.matrice.matrice)
-    };
+    this.matrices = params.get('matrices');
   }
   annuler() {
     this.viewCtrl.dismiss();

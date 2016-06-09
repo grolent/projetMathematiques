@@ -16,7 +16,6 @@ export class EditMatriceModale {
     this.matrice = params.get('matrice');
 
     //creation matrice indexee
-    console.log("matrice non indexee: ",this.matrice.matrice);
     this.indexerMatrice = function(matriceNonIndexee){
       var matriceResult = [];
       for(var i=0; i<matriceNonIndexee.length; i++){
@@ -42,7 +41,6 @@ export class EditMatriceModale {
     this.matriceIndexee = this.indexerMatrice(this.matrice.matrice);
     //fin creation matrice indexee
 
-    console.log("matrice indexee: ",this.matriceIndexee);
     this.testValue = 0;
   }
   annuler() {

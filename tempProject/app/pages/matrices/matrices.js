@@ -3,6 +3,7 @@ import {FormBuilder, Validators, Control, ControlGroup, FORM_DIRECTIVES} from 'a
 import {AddMatriceModale} from '../modales/addMatriceModale';
 import {EditMatriceModale} from '../modales/editMatriceModale';
 import {InverseMatriceModale} from '../modales/inverseMatriceModale';
+import {OperationsMatriceModale} from '../modales/operationsMatriceModale';
 import {MatricesFactory} from '../../factories/matricesFactory';
 
 @Page({
@@ -32,8 +33,6 @@ export class Matrices {
                   [8,7,6,5]]
       }
     ];
-    this.matriceTestResult = {nom: '',
-                              matrice: []};
   }
 
   replaceMatrice(nouvelleMatrice){
@@ -86,6 +85,11 @@ export class Matrices {
 
   showInverseMatriceModale(matrice) {
     let modal = Modal.create(InverseMatriceModale, {matrice: matrice});
+    this.nav.present(modal);
+  }
+
+  showOperationsMatriceModale(matrices) {
+    let modal = Modal.create(OperationsMatriceModale, {matrices: matrices});
     this.nav.present(modal);
   }
 

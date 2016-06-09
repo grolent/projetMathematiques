@@ -1,0 +1,52 @@
+<ion-content padding class="getting-started">
+  <h3>Opérations sur 2 matrices: </h3>
+  <ion-item>
+    <ion-label>Choix 1ère matrice:</ion-label>
+    <ion-select [(ngModel)]="matrice1" multiple="false">
+      <ion-option *ngFor="#matrice of matrices" [value]="matrice" [checked]="false">{{matrice.nom}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item *ngIf="matrice1.hasOwnProperty('nom')">
+    <ion-label>Choix 2nde matrice:</ion-label>
+    <ion-select [(ngModel)]="matrice2" multiple="false">
+      <div *ngFor="#matrice of matrices">
+        <ion-option *ngIf="matricesFactory.areCompatible(matrice.matrice, matrice1.matrice)" [value]="matrice" [checked]="false">{{matrice.nom}}</ion-option>
+      </div>
+    </ion-select>
+  </ion-item>
+
+  <ion-list *ngIf="matrice1.hasOwnProperty('nom')">
+    <ion-label>{{matrice1.nom}}</ion-label>
+    <ion-item *ngFor="#ligne of matrice1.matrice">
+      <ion-label *ngFor="#elem of ligne">{{elem}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="matrice2.hasOwnProperty('nom') && matricesFactory.areCompatible(matrice2.matrice, matrice1.matrice) ">
+    <ion-label>{{matrice2.nom}}</ion-label>
+    <ion-item *ngFor="#ligne of matrice2.matrice">
+      <ion-label *ngFor="#elem of ligne">{{elem}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="matriceResult.hasOwnProperty('matrice')">
+    <ion-label>{{matriceResult.nom}}</ion-label>
+    <ion-item *ngFor="#ligne of matriceResult.matrice">
+      <ion-label *ngFor="#elem of ligne">{{elem}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <button *ngIf="matrice1.hasOwnProperty('nom') && matrice2.hasOwnProperty('nom')"
+          type="button"
+          (click)="matriceResult.matrice = matricesFactory.additionMatrices(matrice1.matrice, matrice2.matrice)">
+    Additionner
+  </button>
+  <button *ngIf="matrice1.hasOwnProperty('nom') && matrice2.hasOwnProperty('nom')"
+          type="button"
+          (click)="matriceResult.matrice = matricesFactory.soustractionMatrices(matrice1.matrice, matrice2.matrice)">
+    Soustraire
+  </button>
+
+  <div padding>
+    <button type="button" (click)="annuler()">Retour</button>
+  </div>
+</ion-content>
