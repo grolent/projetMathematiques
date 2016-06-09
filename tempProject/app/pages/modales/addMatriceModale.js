@@ -15,8 +15,8 @@ export class AddMatriceModale {
 
     this.addMatriceForm = form.group({
       'nom': ['', Validators.required],
-      'm': ['', Validators.required],
-      'n': ['', Validators.required]
+      'm': ['', Validators.compose([Validators.pattern('^([1-9]|10)$'), Validators.required])],
+      'n': ['', Validators.compose([Validators.pattern('^([1-9]|10)$'), Validators.required])]
     });
     this.nom = this.addMatriceForm.controls['nom'];
     this.m = this.addMatriceForm.controls['m'];
@@ -24,7 +24,7 @@ export class AddMatriceModale {
   }
   valider() {
     let data = {
-      nom: this.nom._value, 
+      nom: this.nom._value,
       m: parseInt(this.m._value),
       n: parseInt(this.n._value)
     };
