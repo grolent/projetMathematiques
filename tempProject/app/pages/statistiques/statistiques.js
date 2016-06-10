@@ -14,10 +14,18 @@ export class Statistiques {
   }
   constructor(form, nav) {
     this.nav = nav;
-    this.listeTest = [3, 4, 2, 4, 12.3, 8, 4, 12.3, 2, 9, 1];
+    this.listeTest = [1,3,4,8,3,4,3,5];
+    this.listeTest2 = [2,7,3,4,6,9,8];
     this.statistiquesFactory = new StatistiquesFactory();
+
+    this.testMoyenne = this.statistiquesFactory.getMoyenne(this.listeTest);
+    console.log('test moyenne: ', this.testMoyenne);
     console.log(this.listeTest);
+    console.log('test mediane: ', this.statistiquesFactory.getMediane(this.listeTest));
     this.listeTest = this.statistiquesFactory.orderList(this.listeTest);
     console.log(this.listeTest);
+    console.log('test mediane: ', this.statistiquesFactory.getMediane(this.listeTest));
+    console.log(this.listeTest2);
+    console.log('test mediane: ', this.statistiquesFactory.getMediane(this.listeTest2));
   }
 }
