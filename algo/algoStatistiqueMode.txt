@@ -1,0 +1,16 @@
+// algo mode
+
+A : serie statistique dans l'ordre
+B : serie des effectif de A
+
+foreach i dans B ; i++
+	// on cherche les (i) le plus elevé dans B
+	selectionner le ou les i maximales
+	// on cherche s'il y a qu'une valeur maximale ou plusieurs
+	si count(i) = 1 
+		retourner la valeur dans B de i
+	// si il y a plusieurs valeurs
+	sinon  si i > 1 
+		retourner toute les valeurs dans B de i
+	fin si
+fin 

@@ -1,0 +1,17 @@
+// loi uniforme
+X : variable aléatoire tirée au hasard
+
+
+demander à l'utilisateur de rentrer un intervalle
+récuperer intervalle [a;b]
+la probabilité que X soit compris dans l'intervalle [a;b] est :
+//// calcul de probabilité
+f (X) = 1 / b-a
+return la probabilité que X soit dans l'intervalle [a;b] est de = resultat de f(x)
+
+demander à l'utilisateur de rentrer un intervalle, présent dans [a;b]
+recuperer intervalle [c;d]
+/// calcul de la probabilité
+f(x) = d-c / b-a
+return la probabilité que X soit dans l'intervalle [c;d] est de = resultat f(x)
+
