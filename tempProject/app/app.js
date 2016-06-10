@@ -5,12 +5,14 @@ import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
 import {ListPage} from './pages/list/list';
 import {EquationDegre2} from './pages/equation-degre-2/equation-degre-2';
 import {Matrices} from './pages/matrices/matrices';
+import {Statistiques} from './pages/statistiques/statistiques';
 import {MatricesFactory} from './factories/matricesFactory';
+import {StatistiquesFactory} from './factories/statistiquesFactory';
 
 
 @App({
   templateUrl: 'build/app.html',
-  providers: [MatricesFactory],
+  providers: [MatricesFactory, StatistiquesFactory],
   config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
 class MyApp {
@@ -27,10 +29,11 @@ class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'Equation second degré', component: EquationDegre2 },
+      { title: 'Hello Ionic', component: HelloIonicPage},
+      { title: 'Equation second degré', component: EquationDegre2},
       { title: 'Matrices', component: Matrices},
-      { title: 'My First List', component: ListPage }
+      { title: 'Statistiques', component: Statistiques},
+      { title: 'My First List', component: ListPage}
     ];
 
     // make HelloIonicPage the root (or first) page
