@@ -20,6 +20,21 @@ export class Statistiques {
     this.listeTest4 = [3,3];
     this.listeTest5 = [1,3,3.2,4,3.2,4,3.2,5 ,4, 3,2,1,5,5];
     this.listeTest6 = [1,1,3,5,6,6];
+
+    this.listeEffTest1 = [{val: 1, eff: 1},
+                          {val: 4, eff: 3},
+                          {val: 8, eff: 1},
+                          {val: 3, eff: 3}];
+
     this.statistiquesFactory = new StatistiquesFactory();
+    var testModeEff1 = this.statistiquesFactory.getModeEff(this.listeEffTest1);
+    console.log('testModeEff1', testModeEff1);
+    var testMoyEff1 = this.statistiquesFactory.getMoyenneEff(this.listeEffTest1);
+    console.log('testMoyEff1', testMoyEff1);
+    var testMedianeEff1 = this.statistiquesFactory.getMedianeEff(this.listeEffTest1);
+    console.log('testMedianeEff1', testMedianeEff1);
+    var testEcartTypeEff1 = this.statistiquesFactory.getEcartType(this.listeEffTest1);
+    console.log('testEcartTypeEff1', testEcartTypeEff1);
+    console.log('listeEffTest1', this.listeEffTest1);
   }
 }
