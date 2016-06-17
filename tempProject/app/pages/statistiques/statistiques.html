@@ -17,4 +17,24 @@
   <h3>Statistiques : </h3>
   <button (click)="showAddSerieModale()">Ajouter série</button>
 
+
+  <ion-list *ngFor="#serie of series">
+    <ion-label>Série: {{serie.nom}}</ion-label>
+    <ion-row>
+      <ion-col><strong>Valeur</strong></ion-col>
+      <ion-col><strong>Poids</strong></ion-col>
+    </ion-row>
+    <ion-row *ngFor="#elem of serie.serie">
+      <ion-col>{{elem.val}}</ion-col>
+      <ion-col>{{elem.eff}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>Moyenne: <br/>{{statistiquesFactory.getMoyenneEff(serie.serie)}}</ion-col>
+      <ion-col>Mode: <br/>[ {{statistiquesFactory.getModeEff(serie.serie)}} ]</ion-col>
+      <ion-col>Médiane: <br/>{{statistiquesFactory.getMedianeEff(serie.serie)}}</ion-col>
+      <ion-col>Ecart type: <br/>{{statistiquesFactory.getEcartType(serie.serie).toFixed(3)}}</ion-col>
+    </ion-row>
+
+  </ion-list>
+
 </ion-content>

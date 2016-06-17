@@ -36,7 +36,7 @@ export class AddSerieModale {
     let modal = Modal.create(AddEntreeSerieModale);
     modal.onDismiss(data => {
       if(typeof data !== "undefined"){
-          this.serie.push({va: data.val, eff: data.eff});
+          this.serie.push({val: Number(data.val), eff: Number(data.eff)});
       }
     });
     this.nav.present(modal);

@@ -10,6 +10,15 @@
         <button type="button"  (click)="ajouterEntree()">Ajouter une entrée</button>
       </ion-item>
 
+      <ion-row>
+        <ion-col><strong>Valeur</strong></ion-col>
+        <ion-col><strong>Poids</strong></ion-col>
+      </ion-row>
+      <ion-row *ngFor="#elem of serie">
+        <ion-col>{{elem.val}}</ion-col>
+        <ion-col>{{elem.eff}}</ion-col>
+      </ion-row>
+
     </ion-list>
 
     <div padding>
