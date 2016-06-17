@@ -6,7 +6,7 @@
     <ion-label>{{matrice.nom}}</ion-label>
     <form [ngFormModel]="editMatriceForm" (submit)="testEdit()">
       <ion-item *ngFor="#ligne of matriceIndexee">
-        <ion-input *ngFor="#elem of ligne" type="number" value="" [(ngModel)]="elem.val" ngControl="champ"></ion-input>
+        <ion-input *ngFor="#elem of ligne" type="number" step="0.001" value="" [(ngModel)]="elem.val" ngControl="champ"></ion-input>
       </ion-item>
     </form>
   </ion-list>
