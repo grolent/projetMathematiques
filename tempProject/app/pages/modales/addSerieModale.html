@@ -1,0 +1,19 @@
+<ion-content padding class="getting-started">
+  <h3>Ajout de série </h3>
+  <form [ngFormModel]="addSerieForm" (submit)="valider()">
+    <ion-list>
+      <ion-item>
+        <ion-label>Nom série: </ion-label>
+        <ion-input type="text"  ngControl="nom"></ion-input>
+      </ion-item>
+      <ion-item>
+        <button type="button"  (click)="ajouterEntree()">Ajouter une entrée</button>
+      </ion-item>
+
+    </ion-list>
+
+    <div padding>
+      <button type="button" (click)="annuler()">Annuler</button><button block type="submit" [disabled]="!addSerieForm.valid">Valider</button>
+    </div>
+  </form>
+</ion-content>

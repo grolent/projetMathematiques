@@ -1,0 +1,20 @@
+<ion-content padding class="getting-started">
+  <h3>Ajout d'une entrée </h3>
+  <form [ngFormModel]="addEntreeSerieForm" (submit)="valider()">
+    <ion-list>
+      <ion-item>
+        <ion-label>Valeur:</ion-label>
+        <ion-input type="number"  ngControl="val"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Poids: </ion-label>
+        <ion-input type="number"  ngControl="eff"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <div padding>
+      <button type="button" (click)="annuler()">Annuler</button><button block type="submit" [disabled]="!addEntreeSerieForm.valid">Valider</button>
+    </div>
+  </form>
+</ion-content>

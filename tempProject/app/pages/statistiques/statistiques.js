@@ -1,6 +1,7 @@
 import {Page, Modal, NavController} from 'ionic-angular';
 import {FormBuilder, Validators, Control, ControlGroup, FORM_DIRECTIVES} from 'angular2/common';
 import {StatistiquesFactory} from '../../factories/statistiquesFactory';
+import {AddSerieModale} from '../modales/addSerieModale';
 
 @Page({
   templateUrl: 'build/pages/statistiques/statistiques.html'
@@ -13,6 +14,7 @@ export class Statistiques {
     ];
   }
   constructor(form, nav) {
+    this.series = [];
     this.nav = nav;
     this.listeTest = [1,3,4,8,3,4,3,4];
     this.listeTest2 = [2,7,3,4,6,9,8];
@@ -36,5 +38,16 @@ export class Statistiques {
     var testEcartTypeEff1 = this.statistiquesFactory.getEcartType(this.listeEffTest1);
     console.log('testEcartTypeEff1', testEcartTypeEff1);
     console.log('listeEffTest1', this.listeEffTest1);
+  }
+
+  showAddSerieModale() {
+    let modal = Modal.create(AddSerieModale);
+    modal.onDismiss(data => {
+      if(typeof data !== "undefined"){
+          this.series.push({nom: data.nom, serie: data.serie});
+      }
+      console.log(this.series);
+    });
+    this.nav.present(modal);
   }
 }
