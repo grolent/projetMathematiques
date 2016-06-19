@@ -1,0 +1,10 @@
+<ion-content padding class="getting-started">
+  <h3>Loi uniforme </h3>
+  <button type="button" (click)="annuler()">Retour</button>
+  <ion-list>
+    <button type="button" (click)="showAddIntervalModale()">Définir premier interval</button>
+    <p *ngIf="interval1.length > 0">interval 1: [ {{interval1}} ]</p>
+    <button *ngIf="interval1.length > 0" type="button" (click)="showAddInterval2Modale()">Définir second interval</button>
+    <p *ngIf="interval2.length > 0">interval 2: [ {{interval2}} ]</p>
+  </ion-list>
+</ion-content>
