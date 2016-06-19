@@ -1,0 +1,13 @@
+Demander a l'utilisateur la probabilité (fraction ou nombre normal)
+recupérer P
+
+Demander a l'utilsateur combien de fois il répète l'expérience (ex: experience répétée 10)
+récupérer n
+
+Demander à l'utilisateur combien de fois il veur avoir P dans n (ex: je veux tirer 4 fois P sur une experience répéter 10 fois, ici k = 4)
+récuperer k
+
+
+p(x = k) : (n! / k!(n-k)!) * p^k * (1-p)^(n-k)
+
+return p(x = k)

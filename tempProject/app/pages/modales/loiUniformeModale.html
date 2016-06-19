@@ -3,8 +3,12 @@
   <button type="button" (click)="annuler()">Retour</button>
   <ion-list>
     <button type="button" (click)="showAddIntervalModale()">Définir premier interval</button>
-    <p *ngIf="interval1.length > 0">interval 1: [ {{interval1}} ]</p>
+    <p *ngIf="interval1.length > 0">interval 1: [ {{interval1[0]}} ; {{interval1[1]}} ]</p>
+    <p *ngIf="interval1.length > 0">Soit une variable aléatoire X dans l'interval 1,
+      pour tout x appartient à cet interval, la probabilité P(X = x) vaut : {{probasFactory.loiUniforme1(interval1).toFixed(2)}}</p>
     <button *ngIf="interval1.length > 0" type="button" (click)="showAddInterval2Modale()">Définir second interval</button>
-    <p *ngIf="interval2.length > 0">interval 2: [ {{interval2}} ]</p>
+    <p *ngIf="interval2.length > 0">interval 2: [ {{interval2[0]}} ; {{interval2[1]}} ]</p>
+    <p *ngIf="interval2.length > 0">Soit une variable aléatoire X dans l'interval 1,
+      pour tout x appartient à cet interval, la probabilité que x appartienne à l'interval 2 est: {{probasFactory.loiUniforme2(interval1, interval2).toFixed(2)}}</p>
   </ion-list>
 </ion-content>

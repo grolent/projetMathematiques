@@ -1,6 +1,7 @@
 import {Modal, NavController, Page, ViewController} from 'ionic-angular';
 import {FormBuilder, Validators, Control, ControlGroup, FORM_DIRECTIVES} from 'angular2/common';
 import {AddIntervalModale} from './addIntervalModale';
+import {ProbasFactory} from '../../factories/probasFactory';
 @Page({
   templateUrl: 'build/pages/modales/loiUniformeModale.html'
 })
@@ -15,6 +16,7 @@ export class LoiUniformeModale {
   constructor(viewCtrl, form, nav) {
     this.viewCtrl = viewCtrl;
     this.nav = nav;
+    this.probasFactory = new ProbasFactory();
     this.interval1 = [];
     this.interval2 = [];
   }
@@ -33,7 +35,7 @@ export class LoiUniformeModale {
   }
 
   showAddInterval2Modale() {
-    let modal = Modal.create(AddIntervalModale);
+    let modal = Modal.create(AddIntervalModale, {baseInterval: this.interval1});
     modal.onDismiss(data => {
       if(typeof data !== "undefined"){
           this.interval2 = data.interval;
