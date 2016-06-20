@@ -31,6 +31,7 @@ export class LoiUniformeModale {
           this.interval1 = data.interval;
       }
     });
+    this.interval2 = [];
     this.nav.present(modal);
   }
 

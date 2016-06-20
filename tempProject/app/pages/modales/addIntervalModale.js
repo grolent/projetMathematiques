@@ -15,8 +15,8 @@ export class AddIntervalModale {
     this.viewCtrl = viewCtrl;
     this.baseInterval = params.get('baseInterval');
     this.addIntervalForm = form.group({
-      'min': ['', Validators.compose([Validators.pattern('^-?[0-9]+$'), Validators.required])],
-      'max': ['', Validators.compose([Validators.pattern('^-?[0-9]+$'), Validators.required])]
+      'min': ['', Validators.compose([Validators.pattern('^-?[0-9]+(\.[0-9]+)?$'), Validators.required])],
+      'max': ['', Validators.compose([Validators.pattern('^-?[0-9]+(\.[0-9]+)?$'), Validators.required])]
     });
     this.min = this.addIntervalForm.controls['min'];
     this.max = this.addIntervalForm.controls['max'];

@@ -1,14 +1,14 @@
 <ion-content padding class="getting-started">
-  <h3>Entrez un interval </h3>
+  <h3>Entrez un intervalle </h3>
   <form [ngFormModel]="addIntervalForm" (submit)="valider()">
     <ion-list>
       <ion-item>
-        <ion-label>Minimum (entier):</ion-label>
-        <ion-input type="number"  ngControl="min"></ion-input>
+        <ion-label>Minimum: </ion-label>
+        <ion-input type="number" step="0.01" ngControl="min"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Maximum (entier): </ion-label>
-        <ion-input type="number"  ngControl="max"></ion-input>
+        <ion-label>Maximum: </ion-label>
+        <ion-input type="number" step="0.01" ngControl="max"></ion-input>
       </ion-item>
 
     </ion-list>
