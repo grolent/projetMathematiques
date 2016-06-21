@@ -1,0 +1,24 @@
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Probabilités</ion-title>
+</ion-navbar>
+
+
+<ion-content padding class="getting-started">
+
+
+
+  <button ion-item *ngFor="#p of pages" (click)="openPage(p)">
+    {{p.title}}
+  </button>
+
+  <h3>Probabilités : </h3>
+
+  <button (click)="showLoiUniformeModale()">Loi uniforme</button>
+  <button (click)="showLoiBinomialeModale()">Loi binomiale</button>
+  <button (click)="showLoiNormaleModale()">Loi normale</button>
+
+
+</ion-content>

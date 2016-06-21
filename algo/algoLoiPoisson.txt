@@ -1,0 +1,15 @@
+﻿var L, b, d, resultat
+var i
+
+demander à l'utilisateur son parametre L
+Recuperer L
+demander à l'utilisateur borne + , b
+Recuperer b
+demander à l'utilisateur borne - , d
+Recuperer d
+
+pour i allant de d à b , i < b // on parcourt les bornes pas à pas de manière discrete (nombre entier)
+{
+	res = (e^-L)* ((L^i)/i!)
+}
+return res

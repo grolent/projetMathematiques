@@ -1,0 +1,31 @@
+<ion-content padding class="getting-started">
+  <h3>Loi binomiale </h3>
+  <button type="button" (click)="annuler()">Retour</button>
+
+  <form [ngFormModel]="binomialeForm" (submit)="calculLoiBinomiale()">
+    <ion-list>
+      <p>Nombre d'expériences: </p>
+      <ion-item>
+        <ion-input type="number" step="1"  ngControl="n"></ion-input>
+      </ion-item>
+
+      <p>Probabilité de X: </p>
+      <ion-item>
+        <ion-input type="number" step="0.001"  ngControl="p"></ion-input>
+      </ion-item>
+
+      <p>Nombre de réalisation(s): </p>
+      <ion-item>
+        <ion-input type="number" step="1"  ngControl="k"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <div padding>
+      <button block type="submit" [disabled]="!binomialeForm.valid || !isKok()">Calculer</button>
+    </div>
+  </form>
+
+  <p *ngIf="exec">La probabilité que X se réalise {{kAffichage}} fois
+    pour {{nAffichage}} expériences est de {{result}}</p>
+
+</ion-content>

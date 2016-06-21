@@ -14,7 +14,7 @@ export class AddEntreeSerieModale {
     this.viewCtrl = viewCtrl;
     this.addEntreeSerieForm = form.group({
       'val': ['', Validators.compose([Validators.pattern('^-?[0-9]+(\.[0-9]+)?$'), Validators.required])],
-      'eff': ['', Validators.compose([Validators.pattern('^[0-9]+$'), Validators.required])]
+      'eff': ['', Validators.compose([Validators.pattern('^[1-9][0-9]*$'), Validators.required])]
     });
     this.val = this.addEntreeSerieForm.controls['val'];
     this.eff = this.addEntreeSerieForm.controls['eff'];

@@ -1,0 +1,355 @@
+package karam.mathoutil;
+
+/**
+ * Created by victor on 30/05/2016.
+ */
+public class TroisiemeDegre {
+
+	private double a;
+	private double b;
+	private double c;
+	private double d;
+
+	private double p;
+	private double q;
+
+	private double x;
+	private double x1;
+	private double x2;
+	private double x3;
+
+	private double a0;
+	private double a1;
+	private double a2;
+	private double a3;
+
+	private double u;
+	private double u1;
+	private double v;
+	private double v1;
+	private double t;
+
+	private double delta;
+	private double rdelta;
+
+	public TroisiemeDegre(double A, double B, double C, double D)
+	{
+		this.setA(A);
+		this.setB(B);
+		this.setC(C);
+		this.setD(D);
+
+		this.setA0(getA0());
+		this.setA1(a1);
+		this.setA2(a2);
+		this.setA3(a3);
+
+		this.setQ();
+		this.setP();
+
+		this.setDelta();
+		this.setRdelta();
+
+		this.setSolutions();
+	}
+
+
+	private double getA() {
+		return a;
+	}
+
+
+	private void setA(double a) {
+		if (a != 0)
+			this.a = a;
+		else
+			this.a = 1;
+	}
+
+
+	private double getB() {
+		return b;
+	}
+
+
+	private void setB(double b) {
+		this.b = b;
+	}
+
+
+	private double getC() {
+		return c;
+	}
+
+
+	private void setC(double c) {
+		this.c = c;
+	}
+
+
+	private double getD() {
+		return d;
+	}
+
+
+	private void setD(double d) {
+		this.d = d;
+	}
+
+	public String toString()
+	{
+		return "a = " + getA() + " b = " + getB() + " c = " + getC() +  " d = " + getD();
+	}
+
+	//Calcul Préliminaires
+
+	private void setA0(double a0) {
+		this.a0 = d/a;
+	}
+
+	private double getA0() {
+		return a0;
+	}
+
+	private void setA1(double a1) {
+		this.a1 = c/a;
+	}
+
+	private double getA1() {
+		return a1;
+	}
+
+	private void setA2(double a2) {
+		this.a2 = b/a;
+	}
+
+	private double getA2() {
+		return a2;
+	}
+
+	private void setA3(double a3) {
+		this.a3 = a2/3;
+	}
+
+	private double getA3() {
+		return a3;
+	}
+
+	public String toString2()
+	{
+		return "A0 = " + getA0() + " A1 = " + getA1() + " A2 = " + getA2() +  " A3 = " + getA3();
+	}
+
+	public void setP() {
+		this.p = a1 - (a3*a2);
+	}
+
+	private double getP() {
+		return p;
+	}
+
+	public void setQ() {
+		this.q = getA0() - (a1*a3) + (2*a3*a3*a3);
+	}
+
+	private double getQ() {
+		return q;
+	}
+
+	public String toString3()
+	{
+		return "P = " + getP() + " Q = " + getQ();
+	}
+
+	// Calcul du Discriminant
+
+	private void setDelta() {
+		this.delta = ((q/2)*(q/2))+((p/3)*(p/3)*(p/3));
+	}
+
+	private double getDelta() {
+		return delta;
+	}
+
+	private void setRdelta() {
+		if (delta>0)
+		{
+			this.rdelta = Math.sqrt(delta);
+		}
+		else
+		{
+			this.rdelta = Math.sqrt(-delta);
+		}
+	}
+
+	private double getRdelta() {
+		return rdelta;
+	}
+
+	public String toString4()
+	{
+		return "Delta1 = " + getDelta() + " Delta2 = " + getRdelta();
+	}
+
+	private void setSolutions()
+	{
+		//Cas particulier ou b et c sont null
+		if ( (b==0) && (c==0) )
+		{
+			x = (-d / a);
+			x1 = (x * Math.cbrt(x));
+			x2 = ((-x1) / 2);
+			x3 = ((x1 * Math.sqrt(3.0)) / 2.0);
+		}
+
+		//Cas particulier ou p=0 et q=0
+		else if  ((p==0) && (q==0))
+		{
+			x1 = (-b/(3.0*a));
+			x2 = x1;
+			x3 = x1;
+		}
+
+		//Cas particulier ou p=0
+		else if  (p==0)
+		{
+			x1 = Math.cbrt(-q);
+			x2 = x1;
+			x3 = x1;
+		}
+
+		//Calcul intermedière
+		else if (delta>0)
+		{
+			u1 = (-q/2) + rdelta;
+			u = Math.cbrt(u1);
+			v1 = (-q/2) - rdelta;
+			v = Math.cbrt(v1);
+
+			x1 = u + v - (b/3.0*a);
+			x2 = -(u/2.0) - (v/2.0) - (b/3.0*a);
+			x3 = (1.0/2.0) * ((Math.sqrt(3)) * (u-v));
+		}
+
+		// Calcul x1 et x2
+		else if (delta==0)
+		{
+			x1 = 3.0 * q / p - a3;
+			x2 = -3.0 * q / 2.0 / p - a3;
+		}
+
+		//Calcul via la trigonométrie
+		else
+		{
+			u = 2.0 * Math.sqrt(-p / 3.0);
+			v = -q / 2.0 / Math.pow((-p/3.0),(3.0/2.0));
+			t = Math.acos(v) / 3.0;
+			x1 = ((u * Math.cos(t)) - a3);
+			x2 = u * Math.cos(t + 2.0 * Math.PI / 3.0) - a3;
+			x3 = u * Math.cos(t + 4.0 * Math.PI / 3.0) - a3;
+		}
+
+		x1 = x1 * 1000;
+		x1 = Math.round(x1);
+		x1 = x1/1000;
+		x2 = x2 * 1000;
+		x2 = Math.round(x2);
+		x2 = x2/1000;
+		x3 = x3 * 1000;
+		x3 = Math.round(x3);
+		x3 = x3/1000;
+	}
+
+	public String getX1ToString()
+	{
+		return Double.toString(x1);
+	}
+
+	public String getX2ToString()
+	{
+		if ( (b==0) && (c==0) )
+		{
+			if (x3>0)
+			{
+				return Double.toString(x2) + " + " + Double.toString(x3) + " i" ;
+			}
+			else if (x3==0)
+			{
+				return Double.toString(x2);
+			}
+			else
+			{
+				return Double.toString(x2) + " - " + Double.toString(-x3) + " i" ;
+			}
+		}
+		else if  (p==0.0)
+		{
+			return Double.toString(x2);
+		}
+		else if (delta>0)
+		{
+			if (x3>0)
+			{
+				return Double.toString(x2) + " + " + Double.toString(x3) + " i" ;
+			}
+			else if (x3==0)
+			{
+				return Double.toString(x2);
+			}
+			else
+			{
+				return Double.toString(x2) + " - " + Double.toString(-x3) + " i" ;
+			}
+		}
+		else if (delta==0)
+		{
+			return Double.toString(x2);
+		}
+		else
+		{
+			return Double.toString(x2);
+		}
+	}
+
+	public String getX3ToString()
+	{
+		if ( (b==0) && (c==0) )
+		{
+			if (x3>0)
+			{
+				return Double.toString(x2) + " - " + Double.toString(x3) + " i" ;
+			}
+			else if (x3==0)
+			{
+				return Double.toString(x2);
+			}
+			else
+			{
+				return Double.toString(x2) + " + " + Double.toString(-x3) + " i" ;
+			}
+		}
+		else if  (p==0)
+		{
+			return Double.toString(x2);
+		}
+		else if (delta>0)
+		{
+			if (x3>0)
+			{
+				return Double.toString(x2) + " - " + Double.toString(x3) + " i" ;
+			}
+			else if (x3==0)
+			{
+				return Double.toString(x2);
+			}
+			else
+			{
+				return Double.toString(x2) + " + " + Double.toString(-x3) + " i" ;
+			}
+		}
+		else
+		{
+			return Double.toString(x3);
+		}
+	}
+}
