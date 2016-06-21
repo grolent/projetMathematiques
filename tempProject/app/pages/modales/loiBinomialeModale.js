@@ -32,6 +32,9 @@ export class LoiBinomialeModale {
   }
   calculLoiBinomiale() {
     this.result = this.probasFactory.loiBinomiale( Number(this.p._value), Number(this.n._value), Number(this.k._value) ).toFixed(3);
+    this.nAffichage = this.n._value;
+    this.pAffichage = this.p._value;
+    this.kAffichage = this.k._value;
     this.exec = true;
   }
   isKok() {

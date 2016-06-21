@@ -1,0 +1,30 @@
+<ion-content padding class="getting-started">
+  <h3>Loi normale </h3>
+  <button type="button" (click)="annuler()">Retour</button>
+
+  <form [ngFormModel]="normaleForm" (submit)="calculLoiNormale()">
+    <ion-list>
+      <p>Écart-type: </p>
+      <ion-item>
+        <ion-input type="number" step="0.001"  ngControl="ecartType"></ion-input>
+      </ion-item>
+
+      <p>Espérance: </p>
+      <ion-item>
+        <ion-input type="number" step="0.001"  ngControl="esperance"></ion-input>
+      </ion-item>
+
+      <p>valeur de X obtenue: </p>
+      <ion-item>
+        <ion-input type="number" step="0.001"  ngControl="k"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <div padding>
+      <button block type="submit" [disabled]="!normaleForm.valid">Calculer</button>
+    </div>
+  </form>
+
+  <p *ngIf="exec">La probabilité que X prenne pour valeur {{kAffichage}} est de {{result}}</p>
+
+</ion-content>
