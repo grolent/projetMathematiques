@@ -3,6 +3,7 @@ import {FormBuilder, Validators, Control, ControlGroup, FORM_DIRECTIVES} from 'a
 import {StatistiquesFactory} from '../../factories/statistiquesFactory';
 import {ProbasFactory} from '../../factories/probasFactory';
 import {LoiUniformeModale} from '../modales/loiUniformeModale';
+import {LoiBinomialeModale} from '../modales/loiBinomialeModale';
 
 @Page({
   templateUrl: 'build/pages/probas/probas.html'
@@ -23,6 +24,10 @@ export class Probas {
 
   showLoiUniformeModale() {
     let modal = Modal.create(LoiUniformeModale);
+    this.nav.present(modal);
+  }
+  showLoiBinomialeModale() {
+    let modal = Modal.create(LoiBinomialeModale);
     this.nav.present(modal);
   }
 
