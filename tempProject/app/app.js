@@ -1,7 +1,7 @@
 import {App, IonicApp, Platform, MenuController} from 'ionic-angular';
 import {FORM_PROVIDERS} from 'angular2/common';
 import {StatusBar} from 'ionic-native';
-import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
+import {AccueilPage} from './pages/accueil/accueil';
 import {EquationDegre2} from './pages/equation-degre-2/equation-degre-2';
 import {Matrices} from './pages/matrices/matrices';
 import {Statistiques} from './pages/statistiques/statistiques';
@@ -30,7 +30,7 @@ class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Accueil', component: HelloIonicPage},
+      { title: 'Accueil', component: AccueilPage},
       { title: 'Equation second degré', component: EquationDegre2},
       { title: 'Matrices', component: Matrices},
       { title: 'Statistiques', component: Statistiques},
@@ -38,7 +38,7 @@ class MyApp {
     ];
 
     // make HelloIonicPage the root (or first) page
-    this.rootPage = HelloIonicPage;
+    this.rootPage = AccueilPage;
   }
 
   initializeApp() {
