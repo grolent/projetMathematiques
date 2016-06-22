@@ -1,0 +1,19 @@
+<ion-content padding class="getting-started">
+  <h3>Loi uniforme </h3>
+  <button type="button" (click)="annuler()">Retour</button>
+  <form [ngFormModel]="poissonForm" (submit)="valider()">
+    <ion-list>
+      <button type="button" (click)="showAddIntervalModale()">Définir interval (entiers)</button>
+      <ion-item>
+        <ion-label>Choisissez lambda: </ion-label>
+        <ion-input type="number" step="0.001"  ngControl="lambda"></ion-input>
+      </ion-item>
+      <p *ngIf="interval.length > 0">intervalle : {{probasFactory.intervalToString(interval1)}}</p>
+    </ion-list>
+
+    <div padding>
+      <button type="button" (click)="annuler()">Annuler</button><button block type="submit" [disabled]="!poissonForm.valid && !isFormValid()">Valider</button>
+    </div>
+    
+  </form>
+</ion-content>

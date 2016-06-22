@@ -40,11 +40,16 @@ export class ProbasFactory {
   }
 
   getFactorial(n){
-    var result = 1;
-    for(var i=1; i<=n; i++){
-      result = result*i;
+    if(n === 0){
+      return 1;
     }
-    return result;
+    else{
+      var result = 1;
+      for(var i=1; i<=n; i++){
+        result = result*i;
+      }
+      return result;
+    }
   }
 
   getEsperance(probas){
