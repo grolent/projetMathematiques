@@ -1,5 +1,5 @@
 <ion-content padding class="getting-started">
-  <h3>Loi uniforme </h3>
+  <h3>Loi de poisson </h3>
   <button type="button" (click)="annuler()">Retour</button>
   <form [ngFormModel]="poissonForm" (submit)="valider()">
     <ion-list>
@@ -8,12 +8,20 @@
         <ion-label>Choisissez lambda: </ion-label>
         <ion-input type="number" step="0.001"  ngControl="lambda"></ion-input>
       </ion-item>
-      <p *ngIf="interval.length > 0">intervalle : {{probasFactory.intervalToString(interval1)}}</p>
+      <p *ngIf="interval.length > 0">intervalle : {{probasFactory.intervalToString(interval)}}</p>
     </ion-list>
 
     <div padding>
-      <button type="button" (click)="annuler()">Annuler</button><button block type="submit" [disabled]="!poissonForm.valid && !isFormValid()">Valider</button>
+    <button block type="submit" [disabled]="!poissonForm.valid || !isFormValid()">Valider</button>
     </div>
-    
+
   </form>
+  <ion-row *ngIf="validated">
+    <ion-col><strong>X</strong></ion-col>
+    <ion-col><strong>P(X)</strong></ion-col>
+  </ion-row>
+  <ion-row  *ngFor="#elem of result">
+    <ion-col>{{elem.index}}</ion-col>
+    <ion-col>{{elem.val.toFixed(3)}}</ion-col>
+  </ion-row>
 </ion-content>

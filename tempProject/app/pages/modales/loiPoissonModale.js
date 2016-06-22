@@ -19,7 +19,7 @@ export class LoiPoissonModale {
     this.poissonForm = form.group({
       'lambda': ['', Validators.compose([Validators.pattern('^[0-9]+(\.[0-9]+)?$'), Validators.required])]
     });
-    this.lambda = this.addEntreeSerieForm.controls['lambda'];
+    this.lambda = this.poissonForm.controls['lambda'];
     this.probasFactory = new ProbasFactory();
     this.interval = [];
     this.result = [];
@@ -40,8 +40,10 @@ export class LoiPoissonModale {
   }
 
   valider() {
+    console.log('test interval', this.interval);
     this.result = this.probasFactory.loiPoisson(this.interval, Number(this.lambda._value) );
     this.validated = true;
+    console.log('test result: ',this.result);
   };
   isFormValid() {
     return (this.interval.length > 0);

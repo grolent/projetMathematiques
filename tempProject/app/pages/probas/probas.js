@@ -5,6 +5,7 @@ import {ProbasFactory} from '../../factories/probasFactory';
 import {LoiUniformeModale} from '../modales/loiUniformeModale';
 import {LoiBinomialeModale} from '../modales/loiBinomialeModale';
 import {LoiNormaleModale} from '../modales/loiNormaleModale';
+import {LoiPoissonModale} from '../modales/loiPoissonModale';
 
 @Page({
   templateUrl: 'build/pages/probas/probas.html'
@@ -33,6 +34,10 @@ export class Probas {
   }
   showLoiNormaleModale() {
     let modal = Modal.create(LoiNormaleModale);
+    this.nav.present(modal);
+  }
+  showLoiPoissonModale() {
+    let modal = Modal.create(LoiPoissonModale);
     this.nav.present(modal);
   }
 
