@@ -25,16 +25,31 @@ export class ProbasFactory {
     return res;
   }
 
+  loiPoisson(interval, lambda){
+    var res;
+    var result = [];
+    for(var i = interval[0]; i <= interval[1]; i++){
+      res = ( Math.exp(-lambda) * Math.pow(lambda, i) )/this.getFactorial(i);
+      result.push({index: i, val: res});
+    }
+    return result;
+  }
+
   intervalToString(interval){
     return '[ '+interval[0].toFixed(2)+' ; '+interval[1].toFixed(2)+' ]';
   }
 
   getFactorial(n){
-    var result = 1;
-    for(var i=1; i<=n; i++){
-      result = result*i;
+    if(n === 0){
+      return 1;
     }
-    return result;
+    else{
+      var result = 1;
+      for(var i=1; i<=n; i++){
+        result = result*i;
+      }
+      return result;
+    }
   }
 
   getEsperance(probas){

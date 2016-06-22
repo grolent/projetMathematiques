@@ -30,7 +30,7 @@ class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage},
+      { title: 'Accueil', component: HelloIonicPage},
       { title: 'Equation second degré', component: EquationDegre2},
       { title: 'Matrices', component: Matrices},
       { title: 'Statistiques', component: Statistiques},
