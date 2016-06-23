@@ -25,6 +25,27 @@ export class ProbasFactory {
     return res;
   }
 
+  // algo par approximation, plus le pas est petit, plus c'est précis.
+  // Fonctionne avec des intervals finis, pour des fonctions continues et avec tout y=fx strictivement positif
+  probaLoiNormale(interval, pas, esperance, ecartType){
+    var currentX = interval[0];
+    var precedentY;
+    var currentY = this.loiNormale(esperance, ecartType, currentX);
+    var petitY;
+    for(var sommeAires = 0; currentX < interval[1]; currentX = currentX + pas){
+      precedentY = currentY;
+      currentY = this.loiNormale(esperance, ecartType, currentX+pas);
+      if(precedentY < currentY){
+        petitY = precedentY;
+      }
+      else{
+        petitY = currentY;
+      }
+      sommeAires += ( (pas * (2*petitY + Math.abs(precedentY - currentY) ))/2 );
+    }
+    return sommeAires;
+  }
+
   loiPoisson(interval, lambda){
     var res;
     var result = [];
