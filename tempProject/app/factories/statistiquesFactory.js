@@ -1,7 +1,10 @@
 import * as _ from 'lodash';
 export class StatistiquesFactory {
+
+  // les "listeEff" sont les listes avec la structeur valeur et poids pour chaque élément
   constructor() {
 	}
+  // renvoie la liste ordonnée par ordre croissant
   orderList(list){
     var orderedList = _.sortBy(list);
     return orderedList;
@@ -72,6 +75,7 @@ export class StatistiquesFactory {
     return modes;
   }
 
+  // on ordonne la liste par ordre de poids décroissant, et on prend le premier élément et tout les suivants ayant le meme poids que le premier.
   getModeEff(listeEff){
     var result = [];
     var listeEffOrdDesc = _.orderBy(listeEff, ['eff'], ['desc']);
@@ -98,6 +102,7 @@ export class StatistiquesFactory {
     }
   }
 
+  // transforme une liste avec la structure valeur => poids en liste simple (utilisé pour le calcul de la médiane)
   listeEffToListe(listeEff){
     var result = [];
     for(var i = 0; i<listeEff.length; i++){
