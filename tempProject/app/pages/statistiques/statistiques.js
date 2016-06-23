@@ -16,12 +16,6 @@ export class Statistiques {
   constructor(form, nav) {
     this.series = [];
     this.nav = nav;
-    this.series.push({nom: 'blarg',
-                      serie: [{val: 1, eff: 1},
-                              {val: 4, eff: 3},
-                              {val: 8, eff: 1},
-                              {val: 3, eff: 3}] });
-
     this.statistiquesFactory = new StatistiquesFactory();
   }
 

@@ -19,20 +19,7 @@ export class Matrices {
   constructor(form, nav) {
     this.nav = nav;
     this.matricesFactory = new MatricesFactory();
-    this.matrices = [
-      {
-        nom: 'matrice 1',
-        matrice: [[1,2,3],
-                  [0,1,4],
-                  [5,6,0]]
-      },
-      {
-        nom: 'matrice 2',
-        matrice: [[4,3,2,1],
-                  [1,2,3,4],
-                  [8,7,6,5]]
-      }
-    ];
+    this.matrices = [];
   }
 
   replaceMatrice(nouvelleMatrice){
