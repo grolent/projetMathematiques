@@ -1,5 +1,5 @@
 export class MatricesFactory {
-
+  // Une matrice est représentée sous la forme d'un tableau de tableaux (un tableau par ligne)
   constructor() {
 	}
   additionMatrices(matriceA, matriceB){
@@ -33,7 +33,7 @@ export class MatricesFactory {
       return matriceResult;
     }
   }
-
+  // vérifie si une matrice est carrée
   isSquare(matrice){
     if(matrice.length == matrice[0].length){
       return true;
@@ -42,6 +42,7 @@ export class MatricesFactory {
       return false;
     }
   }
+  // vérifie si les matrices sont de même taille
   areCompatible(matriceA, matriceB){
     if( (matriceA.length === matriceB.length) && (matriceA[0].length === matriceB[0].length) ){
       return true;
@@ -50,6 +51,7 @@ export class MatricesFactory {
       return false;
     }
   }
+  // Renvoie le déterminant d'une matrice
   getDeterminant(matrice){
     if( this.isSquare(matrice) ){
       if(matrice.length === 1){
@@ -81,8 +83,10 @@ export class MatricesFactory {
     }
   }
 
+  // créé une sous matrice à partir d'une première, en ignorant une ligne et une colonne de la première
   getSubMatrice(matrice, ignoreM, ignoreN){
     var matriceResult = [];
+    // on créé 1 matrice avec 1 ligne de moins
     for(var i = 0 ; i<(matrice.length - 1); i++){
       matriceResult[i] = [];
     }
@@ -107,6 +111,7 @@ export class MatricesFactory {
     return matriceResult;
   }
 
+  // retourne la co matrice d'une matrice
   getCoMatrice(matrice){
     var matriceResult = [];
     for(var i = 0; i<matrice.length; i++){
@@ -128,6 +133,7 @@ export class MatricesFactory {
     return matriceResult;
   }
 
+  //Retourne la matrice transposée d'une matrice (lignes et colonnes inversées)
   getMatriceTransposee(matrice){
     var matriceResult = [];
     for(var i = 0; i<matrice[0].length; i++){
@@ -156,6 +162,7 @@ export class MatricesFactory {
     return matriceResult;
   }
 
+  // renvoie la matrice inverse d'une matrice carrée
   getMatriceInverse(matrice){
     var determinant = this.getDeterminant(matrice);
     if(Math.abs(determinant) < Number.EPSILON){
@@ -169,6 +176,7 @@ export class MatricesFactory {
     }
   }
 
+  // Détermine si une matrice est inversible (déterminant différent de 0 et valant au moins le plus petit nombre représentable)
   isInversible(matrice){
     var determinant = this.getDeterminant(matrice);
     if( (determinant === null) || (Math.abs(determinant) < Number.EPSILON) ){

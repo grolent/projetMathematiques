@@ -16,12 +16,6 @@ export class Statistiques {
   constructor(form, nav) {
     this.series = [];
     this.nav = nav;
-    this.series.push({nom: 'blarg',
-                      serie: [{val: 1, eff: 1},
-                              {val: 4, eff: 3},
-                              {val: 8, eff: 1},
-                              {val: 3, eff: 3}] });
-
     this.statistiquesFactory = new StatistiquesFactory();
   }
 
@@ -29,6 +23,9 @@ export class Statistiques {
     let modal = Modal.create(AddSerieModale);
     modal.onDismiss(data => {
       if(typeof data !== "undefined"){
+          while(_.findIndex(this.series, {'nom': data.nom}) !== -1){
+            data.nom = data.nom + " bis";
+          }
           this.series.push({nom: data.nom, serie: data.serie});
       }
     });

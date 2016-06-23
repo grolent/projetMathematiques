@@ -1,6 +1,7 @@
 import {Modal, NavController, Page, ViewController} from 'ionic-angular';
 import {FormBuilder, Validators, Control, ControlGroup, FORM_DIRECTIVES} from 'angular2/common';
 import {AddEntreeSerieModale} from './addEntreeSerieModale';
+import * as _ from 'lodash';
 @Page({
   templateUrl: 'build/pages/modales/addSerieModale.html'
 })
@@ -36,7 +37,13 @@ export class AddSerieModale {
     let modal = Modal.create(AddEntreeSerieModale);
     modal.onDismiss(data => {
       if(typeof data !== "undefined"){
+        var indexValDejaLa = _.findIndex(this.serie, { 'val': Number(data.val)} );    
+        if(indexValDejaLa === -1){
           this.serie.push({val: Number(data.val), eff: Number(data.eff)});
+        }
+        else{
+          this.serie[indexValDejaLa].eff = this.serie[indexValDejaLa].eff + Number(data.eff);
+        }
       }
     });
     this.nav.present(modal);

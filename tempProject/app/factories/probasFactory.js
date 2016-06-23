@@ -3,6 +3,7 @@ export class ProbasFactory {
   constructor() {
 
 	}
+
   loiUniforme1(interval){
     return 1/(interval[1]-interval[0]);
   }
@@ -10,12 +11,14 @@ export class ProbasFactory {
     return (interval2[1]-interval2[0])/(interval1[1]-interval1[0]);
   }
 
+  // p est une probabilité d'un X, n le nombre d'expériences, et k le nombre de réalisations de X parmi les n expériences
   loiBinomiale(p, n, k){
     var coefficientBinomial = this.getFactorial(n)/( (this.getFactorial(k)) * (this.getFactorial(n-k)) );
     var res = coefficientBinomial * Math.pow(p,k) * Math.pow(1-p, n-k);
     return res;
   }
 
+  // fonction calculant la densité de proba dans le cas d'une loi normale
   loiNormale(esperance, ecartType, k){
     var inter1 = 1/(ecartType*Math.sqrt(2 * Math.PI));
     var inter2 = Math.pow(k-esperance, 2);
@@ -25,7 +28,7 @@ export class ProbasFactory {
     return res;
   }
 
-  // algo par approximation, plus le pas est petit, plus c'est précis.
+  // algo calculant l'intégrale par approximation, plus le pas est petit, plus c'est précis.
   // Fonctionne avec des intervals finis, pour des fonctions continues et avec tout y=fx strictivement positif
   probaLoiNormale(interval, pas, esperance, ecartType){
     var currentX = interval[0];
@@ -60,6 +63,7 @@ export class ProbasFactory {
     return '[ '+interval[0].toFixed(2)+' ; '+interval[1].toFixed(2)+' ]';
   }
 
+  // retourne n!
   getFactorial(n){
     if(n === 0){
       return 1;
@@ -73,6 +77,7 @@ export class ProbasFactory {
     }
   }
 
+  // calcule l'espérance à partir d'une liste discrète de valeurs => probabilités (finalement non utilisé)
   getEsperance(probas){
     var result = 0;
     for(var i = 0; i<probas.length; i++){
@@ -81,6 +86,7 @@ export class ProbasFactory {
     return result;
   }
 
+  // calcule la variance à partir d'une liste discrète de valeurs => probabilités (finalement non utilisé)
   getVariance(probas){
     var esperance = this.getEsperance(probas);
     var sommeProbas = 0;
@@ -97,6 +103,7 @@ export class ProbasFactory {
     }
   }
 
+  // calcule l'écart type à partir d'une liste discrète de valeurs => probabilités (finalement non utilisé)
   getEcartType(probas){
     var variance = this.getVariance(probas);
     return Math.sqrt(variance);
