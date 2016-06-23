@@ -20,7 +20,7 @@
     </ion-list>
 
     <div padding>
-      <button block type="submit" [disabled]="!normaleForm.valid">Calculer</button>
+      <button block type="submit" [disabled]="!normaleForm.valid || !isFormValid()">Calculer</button>
     </div>
   </form>
 
