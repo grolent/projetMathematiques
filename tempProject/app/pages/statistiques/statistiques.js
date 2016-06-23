@@ -29,6 +29,9 @@ export class Statistiques {
     let modal = Modal.create(AddSerieModale);
     modal.onDismiss(data => {
       if(typeof data !== "undefined"){
+          while(_.findIndex(this.series, {'nom': data.nom}) !== -1){
+            data.nom = data.nom + " bis";
+          }
           this.series.push({nom: data.nom, serie: data.serie});
       }
     });

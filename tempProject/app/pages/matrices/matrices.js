@@ -60,7 +60,11 @@ export class Matrices {
       nom: nom,
       matrice: matriceData
     };
+    while(_.findIndex(this.matrices, {'nom': matriceObject.nom}) !== -1){
+      matriceObject.nom = matriceObject.nom + " bis";
+    }
     this.matrices.push(matriceObject);
+
   }
 
   showAddMatriceModale() {
