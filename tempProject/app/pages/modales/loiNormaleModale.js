@@ -46,4 +46,8 @@ export class LoiNormaleModale {
     this.exec = true;
   }
 
+  isFormValid() {
+    return (this.interval.length > 0);
+  }
+
 }
